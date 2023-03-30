@@ -240,10 +240,10 @@ def processing_file():
     file = request.files.getlist('file')[0]
 
     #import file csv ke pandas
-    df = pd.read_csv(file)
+    df = pd.read_csv(file, encoding='latin-1')
 
     #Mengambil teks yang akan diproses ke dalam format list
-    texts = df.text.to_list()
+    #texts = df.text.to_list()
 
 def clean_text_input():
     #step 1, mengubah semua karakter menjadi huruf kecil(lowercase)
