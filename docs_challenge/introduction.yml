@@ -1,0 +1,11 @@
+tags:
+  - name: Intro
+get:
+  description: Ini adalah halaman utama pada API Data Cleansing (Rahmatina Ari Apriliana)
+responses:
+    '200':
+      description: Successful response
+    '400':
+      description: Bad Request
+    '500':
+      description: Internal Server Error
