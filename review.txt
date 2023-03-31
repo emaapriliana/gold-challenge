@@ -1,0 +1,3 @@
+review 1: Kereen analisis sangat insightfull
+
+review 2 : penyajian endpoint udah sangat jelas. pada endpoint default dijelaskan before afternya 👍

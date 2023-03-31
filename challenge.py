@@ -181,8 +181,6 @@ def text_cleansed():
         'data': tweets_cleansed
          }
 
-    
-
     response_data = jsonify(json_response)
     return response_data
 
@@ -232,20 +230,24 @@ def clean_text_input():
         return jsonify(json_response)
     
 #ENDPOINT KELIMA
+"""
+REVIEW: fungsi processing_file gausah dibuat, jadi duplikat nantinya mending variable file & df di asign ke fungsi clean_file_input aja
+"""
 #Route untuk cleansing text dari file input user
 @swag_from("docs_challenge/clean_text_file.yml", methods=['POST'])
 @app.route('/input-file-to-clean', methods=['POST'])
-def processing_file():
-    #upload file
-    file = request.files.getlist('file')[0]
+# def processing_file():
+#     #upload file
+#     file = request.files.getlist('file')[0]
 
-    #import file csv ke pandas
-    df = pd.read_csv(file, encoding='latin-1')
+#     #import file csv ke pandas
+#     df = pd.read_csv(file, encoding='latin-1')
 
-    #Mengambil teks yang akan diproses ke dalam format list
-    #texts = df.text.to_list()
+#     #Mengambil teks yang akan diproses ke dalam format list
+#     #texts = df.text.to_list()
+#     return df
 
-def clean_text_input():
+def clean_file_input():
     #step 1, mengubah semua karakter menjadi huruf kecil(lowercase)
     def lowercase(text):
         return text.lower()
@@ -263,15 +265,23 @@ def clean_text_input():
         #step 5, menghilangkan whitespace di awal dan di akhir teks_twit
         text = text.strip()
 
+        # tambahin cleansing rules nya sampai pembersihan step-9 kaya diatas
+
         return text
     
     def preprocess(text): #menggabungkan 2 fungsi menjadi 1 fungsi
         text = lowercase(text)
         text = remove_unnecessary_char(text)
+
         return text
     
     cleaned_text = [] 
-    for text in texts:   #perulangan untuk setiap teks_twit di kolom Tweet
+    file = request.files.getlist('file')[0]
+
+    #import file csv ke pandas
+    df = pd.read_csv(file, encoding='latin-1')
+
+    for text in df['Tweet']:   #perulangan untuk setiap teks_twit di kolom Tweet
         texts = preprocess(text)
         cleaned_text.append(texts)
 
@@ -280,15 +290,14 @@ def clean_text_input():
     #     text = request.form.get('text')
     #     text = preprocess(text)
            
-        json_response = {
-            'status_code': 200,
-            'description': "Hasil dari teks yang sudah dibersihkan",
-            'data': cleaned_text
-        }
-        
-        response_data = jsonify(json_response)
-        return response_data
-
+    json_response = {
+        'status_code': 200,
+        'description': "Hasil dari teks yang sudah dibersihkan",
+        'data': cleaned_text
+    }
+    
+    response_data = jsonify(json_response)
+    return response_data
 
 if __name__ == '__main__':
    app.run()
