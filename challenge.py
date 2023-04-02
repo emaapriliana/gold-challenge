@@ -44,7 +44,7 @@ swagger = Swagger(app, template=swagger_template,
 
 #Start ENDPOINT PERTAMA/LANDING PAGE
 
-@swag_from("docs_challenge/introduction.yml", methods=['GET'])
+@swag_from("docs/introduction.yml", methods=['GET'])
 @app.route('/', methods=['GET'])
 def introduction():
     
@@ -67,7 +67,7 @@ def introduction():
 
 #Start ENDPOINT KEDUA
 #Route untuk menampilkan teks original dari data.csv
-@swag_from("docs_challenge/text_ori.yml", methods=['GET'])
+@swag_from("docs/text_ori.yml", methods=['GET'])
 @app.route('/text-ori', methods=['GET'])
 def text_ori():
 
@@ -87,7 +87,7 @@ def text_ori():
 
 #Start ENDPOINT KETIGA
 #Route untuk menampilkan teks tweet yang sudah dibersihkan
-@swag_from("docs_challenge/text_cleansed.yml", methods=['GET'])
+@swag_from("docs/text_cleansed.yml", methods=['GET'])
 @app.route('/text-cleansed', methods=['GET'])
 
 def text_cleansed():
@@ -119,7 +119,7 @@ def text_cleansed():
 
 #Start ENDPOINT KE EMPAT
 #Route untuk cleansing text yang di input oleh user
-@swag_from("docs_challenge/clean_text_input.yml", methods=['POST'])
+@swag_from("docs/clean_text_input.yml", methods=['POST'])
 @app.route('/input-text-to-clean', methods=['POST'])
 
 def clean_text_input():
@@ -139,7 +139,7 @@ def clean_text_input():
     
 #Start ENDPOINT KELIMA
 #Route untuk cleansing text melalui upload file oleh user
-@swag_from("docs_challenge/clean_text_file.yml", methods=['POST'])
+@swag_from("docs/clean_text_file.yml", methods=['POST'])
 @app.route('/input-file-to-clean', methods=['POST'])
 
 def clean_file_input():
