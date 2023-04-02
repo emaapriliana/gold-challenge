@@ -57,8 +57,7 @@ def introduction():
         "- http://127.0.0.1:5000/text-cleansed , Untuk melihat hasil cleansing teks original dari data Abusive tweet",
         "- http://127.0.0.1:5000/input-text-to-clean , Untuk membersihkan teks yang di-input oleh user",
         "- http://127.0.0.1:5000/input-file-to-clean , Untuk membersihkan file yang berisi teks, yang di-input oleh user"
-
-        
+  
         ]
     }
 
