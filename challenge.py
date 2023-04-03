@@ -50,7 +50,7 @@ def introduction():
     
     json_response = {
         'status_code': 200,
-        'description': "Ini adalah halaman utama pada API Data Cleansing (Rahmatina Ari Apriliana)",
+        'description': "Ini adalah halaman utama pada API Data Cleansing (Rahmatina Ari Apriliana - DSC221200032)",
         'data': [
         
         "- http://127.0.0.1:5000/text-ori , Untuk melihat teks original dari data Abusive tweet", 
